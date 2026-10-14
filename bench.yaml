@@ -1,0 +1,46 @@
+# 실행: python run_bench.py --config bench.yaml
+# run_bench.py는 YAML 옵션을 공식 vllm bench serve에 전달하는 실행 보조 파일입니다.
+# 서버 설정과 이 파일을 섞지 마세요. 이 파일은 부하 생성 클라이언트 설정입니다.
+
+# [실험 설정] 일반 텍스트 Chat Completions. 스트리밍으로 TTFT/TPOT/ITL을 측정합니다.
+backend: openai-chat
+base-url: http://127.0.0.1:8000
+endpoint: /v1/chat/completions
+model: Qwen/Qwen3.8-27B-FP8
+
+# [실험 설정] 별도 데이터셋 다운로드 없이 실행합니다. 답변 품질을 평가하는 데이터는 아닙니다.
+dataset-name: random
+# [기본 유지] 채팅 템플릿/토큰 재인코딩으로 실제 입력 토큰 수는 달라질 수 있습니다.
+random-input-len: 1024
+random-output-len: 128
+random-range-ratio: 0.0
+seed: 0
+
+# [실험 설정] 조기 EOS로 출력이 짧아지는 영향을 줄여 고정 길이 성능을 비교합니다.
+ignore-eos: true
+# 성능 비교용 생성 조건이며 모델 카드의 답변 품질 권장값과는 다릅니다.
+temperature: 0.0
+top-p: 1.0
+# dict는 실행 보조 파일이 JSON 문자열로 변환합니다.
+extra-body:
+  chat_template_kwargs:
+    enable_thinking: false
+
+# [기본 유지] 아래 inf는 YAML 문자열입니다. 따옴표를 유지하세요.
+request-rate: "inf"
+# [실험 설정] 동시 요청 수. 후보: 1, 4, 8, 16, 32.
+# max-num-seqs와 다릅니다. 서버 설정 비교 시에는 이 값을 고정하세요.
+max-concurrency: 4
+# [기본 유지] 워밍업을 제외한 본 측정 요청 수.
+num-prompts: 1000
+# [실험 설정] 최초 컴파일/초기화가 측정에 미치는 영향을 줄입니다.
+num-warmups: 20
+
+# [실험 설정] 평균뿐 아니라 p50/p95/p99 및 전체 응답 시간도 확인합니다.
+percentile-metrics: ttft,tpot,itl,e2el
+metric-percentiles: 50,95,99
+save-result: true
+save-detailed: true
+result-dir: ./results/vllm
+# 고정 result-filename을 지정하지 않아 반복 측정 시 기존 결과를 덮어쓰지 않습니다.
+label: qwen38-27b-fp8-baseline

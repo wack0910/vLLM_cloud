@@ -1,0 +1,28 @@
+# Local dependency bundles and environments
+.plot-deps/
+.venv/
+venv/
+vllm-env/
+node_modules/
+__pycache__/
+*.py[cod]
+**/_validation/
+.cache/
+.mplconfig/
+# Duplicated distribution archives
+*.zip
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+.DS_Store
+Thumbs.db
+# Model weights and large local caches
+*.safetensors
+*.gguf
+*.pt
+*.pth
+*.bin

@@ -1,0 +1,20 @@
+# 실험용 설정입니다. 공식 기본값 전체 덤프가 아닙니다.
+# Prefix OFF와 KV 용량 실험의 공통 시작점.
+model: Qwen/Qwen3.8-27B-FP8
+host: 127.0.0.1
+port: 8000
+dtype: auto
+kv-cache-dtype: auto
+tensor-parallel-size: 1
+pipeline-parallel-size: 1
+language-model-only: true
+gpu-memory-utilization: 0.90
+max-model-len: 8192
+max-num-seqs: 32
+max-num-batched-tokens: 2048
+enable-chunked-prefill: true
+no-enable-prefix-caching: true
+generation-config: vllm
+default-chat-template-kwargs:
+  enable_thinking: false
+enforce-eager: false

@@ -1,0 +1,20 @@
+# config-base.yaml과 Prefix Caching 설정만 다릅니다.
+# ON/OFF 플래그를 한 파일에 동시에 넣지 마세요.
+model: Qwen/Qwen3.8-27B-FP8
+host: 127.0.0.1
+port: 8000
+dtype: auto
+kv-cache-dtype: auto
+tensor-parallel-size: 1
+pipeline-parallel-size: 1
+language-model-only: true
+gpu-memory-utilization: 0.90
+max-model-len: 8192
+max-num-seqs: 32
+max-num-batched-tokens: 2048
+enable-chunked-prefill: true
+enable-prefix-caching: true
+generation-config: vllm
+default-chat-template-kwargs:
+  enable_thinking: false
+enforce-eager: false

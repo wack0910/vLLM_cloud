@@ -1,0 +1,39 @@
+# 빠른 파라미터 탐색용. 실행: python run_bench.py --config bench-fast.yaml
+# 기존 bench.yaml은 1000개 요청 기준 자료로 보존합니다.
+# 모든 후보를 아래 같은 부하로 1회씩 비교하고, 기준/선택 구성만 추가 반복하세요.
+# 현재 서버 설정에서도 이 파일로 새 기준값을 먼저 측정해야 합니다.
+
+backend: openai-chat
+base-url: http://127.0.0.1:8000
+endpoint: /v1/chat/completions
+model: Qwen/Qwen3.8-27B-FP8
+
+# 기존 입력/출력 길이 유지. 처음에는 요청의 길이보다 전체 요청 수를 줄입니다.
+dataset-name: random
+random-input-len: 1024
+random-output-len: 128
+random-range-ratio: 0.0
+seed: 0
+ignore-eos: true
+temperature: 0.0
+top-p: 1.0
+extra-body:
+  chat_template_kwargs:
+    enable_thinking: false
+
+# 1000 -> 160개. 32개 동시 요청의 약 5배는 탐색용 시작점이며 정확도 보장이 아닙니다.
+num-prompts: 160
+# 서버 재시작마다 초기 실행의 영향을 줄이기 위한 짧은 워밍업.
+num-warmups: 8
+request-rate: "inf"
+# 서버 max-num-seqs=8/16/32 비교에서 클라이언트 부하가 너무 낮지 않도록 32로 고정.
+# 기존 동시 요청 4의 결과와 동일 부하가 아닙니다. 증가에 따른 시간 단축은 보장하지 않습니다.
+max-concurrency: 32
+
+# 적은 요청 수로 탐색하므로 p99는 주 판단 지표로 사용하지 않습니다.
+percentile-metrics: ttft,tpot,itl,e2el
+metric-percentiles: 50,95
+save-result: true
+save-detailed: true
+result-dir: ./results/fast
+label: fast-reference-c32
