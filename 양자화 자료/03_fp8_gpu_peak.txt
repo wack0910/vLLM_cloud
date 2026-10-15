@@ -1,0 +1,1 @@
+Sampled GPU peak memory: 15602 MiB

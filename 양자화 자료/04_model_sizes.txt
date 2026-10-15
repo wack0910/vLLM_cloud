@@ -1,0 +1,11 @@
+=== BF16 Original ===
+15G	models/Qwen2.5-7B-Instruct
+=== FP8 Quantized ===
+8.2G	outputs/Qwen2.5-7B-FP8-oneshot
+=== BF16 Weight Files ===
+-rw-r--r-- 1 root root 3.7G 10월 15 13:06 models/Qwen2.5-7B-Instruct/model-00001-of-00004.safetensors
+-rw-r--r-- 1 root root 3.6G 10월 15 13:05 models/Qwen2.5-7B-Instruct/model-00002-of-00004.safetensors
+-rw-r--r-- 1 root root 3.6G 10월 15 13:06 models/Qwen2.5-7B-Instruct/model-00003-of-00004.safetensors
+-rw-r--r-- 1 root root 3.4G 10월 15 13:05 models/Qwen2.5-7B-Instruct/model-00004-of-00004.safetensors
+=== FP8 Weight Files ===
+-rw------- 1 root root 8.2G 10월 15 13:47 outputs/Qwen2.5-7B-FP8-oneshot/model.safetensors

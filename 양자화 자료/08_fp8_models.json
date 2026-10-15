@@ -1,0 +1,30 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "id": "qwen-fp8",
+            "object": "model",
+            "created": 1792039980,
+            "owned_by": "vllm",
+            "root": "/root/workspace/quantization/outputs/Qwen2.5-7B-FP8-oneshot",
+            "parent": null,
+            "max_model_len": 4096,
+            "permission": [
+                {
+                    "id": "modelperm-855852e08243181b",
+                    "object": "model_permission",
+                    "created": 1792039980,
+                    "allow_create_engine": false,
+                    "allow_sampling": true,
+                    "allow_logprobs": true,
+                    "allow_search_indices": false,
+                    "allow_view": true,
+                    "allow_fine_tuning": false,
+                    "organization": "*",
+                    "group": null,
+                    "is_blocking": false
+                }
+            ]
+        }
+    ]
+}

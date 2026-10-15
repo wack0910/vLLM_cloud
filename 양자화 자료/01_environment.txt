@@ -1,0 +1,33 @@
+2026-10-15T13:42:44+09:00
+Thu Oct 15 13:42:44 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.99.02              Driver Version: 595.99.02      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    Off |   00000000:03:00.0 Off |                    0 |
+| N/A   35C    P8             32W /  350W |      14MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            1211      G   /usr/lib/xorg/Xorg                        4MiB |
++-----------------------------------------------------------------------------------------+
+               total        used        free      shared  buff/cache   available
+Mem:            31Gi       1.5Gi        19Gi       0.0Ki        10Gi        29Gi
+Swap:          2.0Gi       689Mi       1.3Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  491G   88G  379G  19% /
+Python 3.10.12
+PyTorch: 2.14.0+cu130
+CUDA: 13.0
+Transformers: 5.17.0
+LLM Compressor: 0.14.0
+0.31.0
+15G	models/Qwen2.5-7B-Instruct

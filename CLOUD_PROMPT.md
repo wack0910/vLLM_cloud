@@ -15,10 +15,11 @@ GPU 서버에서 내가 직접 실행하고 결과를 전달할 거야. 이 클�
 서버 로그 파일은 요구하지 않아도 돼. 결과 JSON/콘솔과, 수집했을 경우 metrics.csv로 진행해줘.
 
 현재 상태:
-- 완료: B0 서버 max-num-seqs16, 나머지 서버 설정은 config/config-base.yaml.
-- 진행 중: max-num-seqs만32로 바꾸고 vllm serve --config config/config.yaml로 재시작한 뒤 동일 부하 실행.
-- seq32 결과는 아직 전달하지 않았어. Prefix/KV 추가 튜닝 실험은 아직 시작하지 않았어.
-- 현재 CLI 전체는 bench/seq32.sh에 있어. 새 실행을 중복으로 시키거나 부하를 변경하지 말아줘.
+- 기본 조건과 max-num-seqs, max-num-batched-tokens, gpu-memory-utilization, max-model-len, enforce-eager 비교 및 Prefix Caching OFF/ON 측정을 완료했어.
+- 최종 요약 보고서는 보고서/vLLM_벤치마킹_보고서.docx, 비교 그래프는 보고서/comparison.png, 측정 요약은 보고서/verified_results.json에 있어.
+- 각 실험의 JSON·콘솔·그래프는 벤치마킹 결과/에 있어. 추가 실험은 아직 요청되지 않았고, GPU 서버에 실행 중인 측정도 없어.
+- 양자화 실습 결과는 별도 보고서 보고서/Qwen2.5_7B_FP8_양자화_실습정리.docx에 있어. 이는 성능 비교 보고서가 아니라 양자화·서빙·API 사용 과정 요약이야.
+- 추가 비교 시 측정 조건이 맞는지 확인하고, KV 사용률이나 Prefix 적중률은 metrics 실측이 없으면 주장하지 말아줘.
 
 공통 부하:
 openai-chat, /v1/chat/completions, random 입력3072/출력256, 요청100개, 클라이언트 동시성32,
@@ -34,9 +35,6 @@ P50/P95 ITL: 50.77/818.58ms.
 원본 benchmark.json과 console.log, 요청별 CSV 및 PNG 그래프가 report-data/base-r3072-o256-c32/에 있어.
 공식 plot 생성은 vllm[bench] 의존성 문제로 실패했지만 JSON으로 그래프를 이미 만들었어.
 
-우선 위 상태를 짧게 확인하고 seq32 결과를 받을 준비를 해줘. 아직 결과가 없으면 완료·개선율을 만들어내지 말아줘.
-결과를 전달하면 먼저 부하 조건 일치를 확인한 뒤 B0와 seq32를 수치·변화율·비교 그래프로 분석해줘.
-데이터가 없는 KV 부족이나 Prefix 효과를 단정하지 말고, 이후 실험은 결과를 설명한 다음 하나씩 제안해줘.
-최종 보고서는 환경/실험 조건, 비교표와 그래프, 관찰 결과, 권장 설정과 수치 근거 중심으로 간략하게 작성해줘.
+먼저 기존 보고서와 결과 파일을 읽어 현재 완료 상태를 파악해줘. 이미 측정된 결과를 재실행하거나 완료된 보고서를 중복 생성하지 말아줘. 내가 후속 분석이나 수정을 요청하면 기존 데이터를 사용하고, 데이터가 없는 KV/Prefix 지표를 추정해 사실처럼 표현하지 말아줘.
 
 ---

@@ -1,0 +1,47 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x7b50e43e9750>, trust_remote_code=False, seed=0, num_prompts=100, dataset_name='prefix_repetition', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=1024, random_output_len=128, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False, random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=2048, prefix_repetition_suffix_len=1024, prefix_repetition_num_prefixes=1, prefix_repetition_output_len=256, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label='prefix-on-p2048-s1024-o256-c32', backend='openai-chat', base_url='http://127.0.0.1:8000', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', header=None, max_concurrency=32, model='Qwen/Qwen3.8-27B-FP8', input_len=None, output_len=None, tokenizer=None, tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=True, append_result=False, metadata=None, result_dir='results/prefix-on-p2048-s1024-o256-c32', result_filename='benchmark.json', ignore_eos=True, self_timed=None, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='50,95', goodput=None, request_id_prefix='bench-542efbce-', top_p=None, top_k=None, min_p=None, temperature=0.0, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body={'chat_template_kwargs': {'enable_thinking': False}}, skip_tokenizer_init=False, insecure=False, plot_timeline=True, timeline_itl_thresholds='50,100', plot_dataset_stats=True, log_config_file=None, logging_config=LoggingConfig(log_level='INFO', configure_logging=True, pylogging_config_file=None))
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 32
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:29<48:37, 29.47s/it]  2%|▏         | 2/100 [00:30<20:22, 12.48s/it]  4%|▍         | 4/100 [00:31<08:03,  5.03s/it]  6%|▌         | 6/100 [00:32<04:38,  2.97s/it]  8%|▊         | 8/100 [00:33<03:07,  2.04s/it] 10%|█         | 10/100 [00:35<02:18,  1.53s/it] 12%|█▏        | 12/100 [00:36<01:48,  1.23s/it] 14%|█▍        | 14/100 [00:37<01:29,  1.05s/it] 16%|█▌        | 16/100 [00:39<01:17,  1.08it/s] 18%|█▊        | 18/100 [00:40<01:08,  1.19it/s] 20%|██        | 20/100 [00:41<01:02,  1.27it/s] 22%|██▏       | 22/100 [00:43<00:58,  1.34it/s] 24%|██▍       | 24/100 [00:44<00:54,  1.39it/s] 25%|██▌       | 25/100 [00:58<03:46,  3.01s/it] 26%|██▌       | 26/100 [00:58<03:06,  2.52s/it] 28%|██▊       | 28/100 [00:59<02:10,  1.82s/it] 30%|███       | 30/100 [01:01<01:39,  1.42s/it] 32%|███▏      | 32/100 [01:02<01:19,  1.17s/it] 34%|███▍      | 34/100 [01:03<01:06,  1.01s/it] 36%|███▌      | 36/100 [01:05<00:57,  1.11it/s] 38%|███▊      | 38/100 [01:06<00:51,  1.21it/s] 40%|████      | 40/100 [01:07<00:46,  1.29it/s] 42%|████▏     | 42/100 [01:09<00:42,  1.35it/s] 44%|████▍     | 44/100 [01:10<00:40,  1.40it/s] 46%|████▌     | 46/100 [01:11<00:37,  1.43it/s] 48%|████▊     | 48/100 [01:13<00:35,  1.45it/s] 49%|████▉     | 49/100 [01:26<02:31,  2.97s/it] 50%|█████     | 50/100 [01:27<02:04,  2.49s/it] 52%|█████▏    | 52/100 [01:28<01:26,  1.80s/it] 54%|█████▍    | 54/100 [01:29<01:04,  1.41s/it] 56%|█████▌    | 56/100 [01:31<00:51,  1.16s/it] 58%|█████▊    | 58/100 [01:32<00:42,  1.00s/it] 60%|██████    | 60/100 [01:33<00:35,  1.12it/s] 62%|██████▏   | 62/100 [01:35<00:31,  1.22it/s] 64%|██████▍   | 64/100 [01:36<00:27,  1.29it/s] 66%|██████▌   | 66/100 [01:37<00:25,  1.35it/s] 68%|██████▊   | 68/100 [01:38<00:22,  1.40it/s] 70%|███████   | 70/100 [01:40<00:20,  1.43it/s] 72%|███████▏  | 72/100 [01:41<00:19,  1.45it/s] 73%|███████▎  | 73/100 [01:55<01:20,  2.97s/it] 74%|███████▍  | 74/100 [01:55<01:04,  2.49s/it] 76%|███████▌  | 76/100 [01:56<00:43,  1.80s/it] 78%|███████▊  | 78/100 [01:57<00:29,  1.32s/it] 80%|████████  | 80/100 [01:58<00:18,  1.09it/s] 82%|████████▏ | 82/100 [01:58<00:11,  1.56it/s] 84%|████████▍ | 84/100 [01:58<00:07,  2.19it/s] 88%|████████▊ | 88/100 [01:58<00:03,  3.79it/s] 92%|█████████▏| 92/100 [01:58<00:01,  5.69it/s] 96%|█████████▌| 96/100 [01:58<00:00,  7.87it/s] 98%|█████████▊| 98/100 [02:08<00:02,  1.14s/it]100%|██████████| 100/100 [02:08<00:00,  1.29s/it]
+/usr/lib/python3.10/asyncio/events.py:80: UserWarning: Failed to generate timeline plot: Please install vllm[bench] for bench support
+  self._context.run(self._callback, *self._args)
+/usr/lib/python3.10/asyncio/events.py:80: UserWarning: Failed to generate dataset statistics plot: Please install vllm[bench] for bench support
+  self._context.run(self._callback, *self._args)
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     100       
+Failed requests:                         0         
+Maximum request concurrency:             32        
+Benchmark duration (s):                  128.88    
+Total input tokens:                      308504    
+Total generated tokens:                  25600     
+Request throughput (req/s):              0.78      
+Output token throughput (tok/s):         198.63    
+Peak output token throughput (tok/s):    457.00    
+Peak concurrent requests:                35.00     
+Total token throughput (tok/s):          2592.35   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          12452.05  
+Median TTFT (ms):                        7277.66   
+P50 TTFT (ms):                           7277.66   
+P95 TTFT (ms):                           31991.57  
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          98.02     
+Median TPOT (ms):                        104.24    
+P50 TPOT (ms):                           104.24    
+P95 TPOT (ms):                           107.55    
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           97.64     
+Median ITL (ms):                         54.55     
+P50 ITL (ms):                            54.55     
+P95 ITL (ms):                            655.21    
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          37447.20  
+Median E2EL (ms):                        33859.90  
+P50 E2EL (ms):                           33859.90  
+P95 E2EL (ms):                           58673.62  
+==================================================

@@ -1,0 +1,25 @@
+# Model
+model: /root/workspace/quantization/outputs/Qwen2.5-7B-FP8-oneshot
+served-model-name: qwen-fp8
+
+# API
+host: "127.0.0.1"
+port: 8000
+
+# GPU / Parallel
+tensor-parallel-size: 1
+gpu-memory-utilization: 0.9
+
+# Context / Scheduler
+max-model-len: 4096
+max-num-seqs: 24
+max-num-batched-tokens: 1024
+enable-chunked-prefill: true
+
+# Cache
+enable-prefix-caching: false
+kv-cache-dtype: auto
+
+# Execution
+enforce-eager: false
+dtype: auto

@@ -1,0 +1,3 @@
+BF16 weights: 14.185 GiB
+FP8 weights: 8.111 GiB
+Storage reduction: 42.82%
